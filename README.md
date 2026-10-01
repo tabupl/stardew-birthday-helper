@@ -8,7 +8,7 @@ Press **Left Control + B** to open it. Browse individual dates with arrows or cl
 the date to choose a season and day. **Today** returns to the game date. The selected
 date persists per farm and player in the mod's `data` directory.
 
-Each character has a portrait, home location, and up to five owned gift suggestions.
+Each character has a portrait, home area, and up to five owned gift suggestions.
 Loved gifts take priority; liked gifts appear only if no loved gift is available.
 Iridium, gold, silver, and normal variants remain distinct and sort in that order.
 Matching stacks are combined. Hover a gift for quantities and storage locations,
@@ -22,7 +22,7 @@ and date-persistence options. English and Polish UI text is included.
 
 ## Install
 
-Extract `dist/BirthdayPlanner-1.0.0.zip` and copy `BirthdayPlanner` to your game’s
+Extract `dist/BirthdayPlanner-1.0.1.zip` and copy `BirthdayPlanner` to your game’s
 `Mods` directory. See [INSTALL.txt](INSTALL.txt). The same package is intended for
 Mac, Windows, and Linux; it contains platform-independent .NET 6 assemblies.
 It adds no NPCs, objects, locations, or serialized save types.
@@ -44,9 +44,11 @@ the mod if they want its UI; this mod sends no network messages.
 
 Birthdays include currently active, giftable NPCs with valid birthday dates,
 including characters not yet met by default. NPCs not spawned/unlocked in the current
-save, or intentionally unable to receive gifts, are excluded. Home labels use the
-character's default home and the game's location display name; some mods provide
-internal-looking labels. Future-date browsing evaluates currently loaded tastes
+save, or intentionally unable to receive gifts, are excluded. Home areas follow exit
+warps from the character's default home to the nearest outdoor
+map (including multi-floor homes and farm buildings), using the game's translated map
+name. A home with no resolvable outdoor exit shows Unknown area. Future-date browsing
+evaluates currently loaded tastes
 and current stock, not predicted future stock or future conditional preferences.
 
 ## Build

@@ -1,9 +1,9 @@
-Birthday Planner 1.0.0 — Mac / Windows / Linux
+Birthday Planner 1.0.1 — Mac / Windows / Linux
 
 Requires Stardew Valley 1.6.15 or later and SMAPI 4.3.1 or later.
 
 1. Exit Stardew Valley.
-2. Extract BirthdayPlanner-1.0.0.zip.
+2. Extract BirthdayPlanner-1.0.1.zip.
 3. Copy its BirthdayPlanner folder into your game's Mods folder.
    The path should be Mods/BirthdayPlanner/manifest.json, not Mods/Mods/...
 4. Start Stardew through SMAPI and load your farm.

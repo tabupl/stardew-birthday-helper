@@ -9,6 +9,7 @@ internal sealed record BirthdayCard(NPC Npc, string Home, bool GiftedToday, Gift
 internal sealed class BirthdayService
 {
     private readonly OwnedItemScanner scanner;
+    private readonly HomeAreaResolver homeAreas;
     private readonly IMonitor monitor;
     private readonly HashSet<string> warned = new();
     public IReadOnlyList<GiftStock<Item>> Stock { get; private set; } = Array.Empty<GiftStock<Item>>();
@@ -17,11 +18,13 @@ internal sealed class BirthdayService
     public BirthdayService(IModHelper helper, IMonitor monitor)
     {
         scanner = new OwnedItemScanner(helper, monitor);
+        homeAreas = new HomeAreaResolver(helper.Translation);
         this.monitor = monitor;
     }
 
     public void Refresh(bool includeUnmet)
     {
+        homeAreas.Clear();
         Stock = scanner.Scan().Where(p => p.Item.canBeGivenAsGift()).ToArray();
         Characters = Utility.getAllCharacters()
             .Where(npc => SafeNpc(npc, includeUnmet))
@@ -58,14 +61,14 @@ internal sealed class BirthdayService
         catch (Exception ex) { Warn(npc.Name + "/" + item.QualifiedItemId, ex); return GiftPreference.Other; }
     }
 
-    private static string GetHome(NPC npc)
+    private string GetHome(NPC npc)
     {
-        string? home = npc.DefaultMap;
-        if (string.IsNullOrWhiteSpace(home))
-            home = npc.GetData()?.Home?.FirstOrDefault(p => GameStateQuery.CheckConditions(p.Condition))?.Location;
-        if (string.IsNullOrWhiteSpace(home)) return npc.GetData()?.HomeRegion ?? "?";
-        GameLocation? location = Game1.getLocationFromName(home);
-        return location != null ? OwnedItemScanner.LocationLabel(location) : home.Replace("Custom_", "").Replace('_', ' ');
+        try { return homeAreas.GetArea(npc); }
+        catch (Exception ex)
+        {
+            Warn(npc.Name + "/home-area", ex);
+            return "?";
+        }
     }
 
     private void Warn(string context, Exception ex)

@@ -11,7 +11,7 @@
   "menu.controls": "Lewo/Prawo: data · Home: dzisiaj",
   "menu.choose-date": "Wybierz datę urodzin",
   "menu.picker-hint": "Wybierz dzień · Escape lub kliknięcie poza oknem: anuluj",
-  "character.home": "Mieszka: {{home}}",
+  "character.home": "Okolica domu: {{home}}",
   "lookup.npc": "F1: szczegóły w Lookup Anything",
   "lookup.item": "F1: szczegóły przedmiotu w Lookup Anything",
   "gift.quantity": "Posiadane: {{count}} · W twoim ekwipunku: {{inventory}}",
@@ -32,5 +32,6 @@
   "config.unmet": "Uwzględniaj niepoznane postacie",
   "config.unmet-hint": "Uwzględnia aktywne postacie przyjmujące prezenty, nawet przed pierwszą rozmową.",
   "config.remember": "Zapamiętuj wybraną datę",
-  "config.remember-hint": "Zapamiętuje datę dla danego zapisu i gracza, także po ponownym uruchomieniu gry."
+  "config.remember-hint": "Zapamiętuje datę dla danego zapisu i gracza, także po ponownym uruchomieniu gry.",
+  "character.unknown-area": "Nieznany obszar"
 }

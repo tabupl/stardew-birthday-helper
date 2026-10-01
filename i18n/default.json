@@ -11,7 +11,7 @@
   "menu.controls": "Left/Right: date · Home: today",
   "menu.choose-date": "Choose a birthday date",
   "menu.picker-hint": "Choose a day · Escape or click outside to cancel",
-  "character.home": "Home: {{home}}",
+  "character.home": "Home area: {{home}}",
   "lookup.npc": "F1: Lookup Anything details",
   "lookup.item": "F1: Lookup Anything item details",
   "gift.quantity": "Owned: {{count}} · In your inventory: {{inventory}}",
@@ -32,5 +32,6 @@
   "config.unmet": "Include characters you have not met",
   "config.unmet-hint": "Includes active, giftable characters even before your first conversation.",
   "config.remember": "Remember selected date",
-  "config.remember-hint": "Remembers the date per save and player, including after restarting the game."
+  "config.remember-hint": "Remembers the date per save and player, including after restarting the game.",
+  "character.unknown-area": "Unknown area"
 }

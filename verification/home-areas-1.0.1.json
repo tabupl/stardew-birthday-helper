@@ -1,0 +1,89 @@
+{
+  "Version": "1.0.1",
+  "Timestamp": "2026-10-01T10:57:30.922014+00:00",
+  "Game": "1.6.15",
+  "Smapi": "4.5.2",
+  "BirthdayCharacters": 176,
+  "HomeAreasResolved": 174,
+  "HomeAreaCounts": {
+    "Sunberry Village": 23,
+    "Ridgeside Village": 36,
+    "Mineral Town Square": 25,
+    "Pelican Town": 20,
+    "Unknown area": 2,
+    "Mount Vapius - Glimsap Hamlet": 3,
+    "East Scarp": 19,
+    "Ellen's Garden": 3,
+    "Bear Lodge Cellar": 5,
+    "Cindersap Forest": 8,
+    "Zuzu Suburb": 6,
+    "Custom_LantanaLagoon": 1,
+    "Bus Stop": 2,
+    "Mountains": 5,
+    "Ridgeside Cliff": 1,
+    "Adventurer Summit": 2,
+    "Mineral Beach": 3,
+    "Pelican Beach": 2,
+    "Sprite Forest South": 1,
+    "Lore's Cove": 2,
+    "Sunberry Forest": 4,
+    "Mount Vapius - Train Station": 1,
+    "Deep Mountains": 1,
+    "Blue Moon Vineyard": 1
+  },
+  "Examples": [
+    {
+      "Name": "Abigail",
+      "Before": "Pierre's General Store",
+      "After": "Pelican Town"
+    },
+    {
+      "Name": "Sebastian",
+      "Before": "SebastianRoom",
+      "After": "Mountains"
+    },
+    {
+      "Name": "Alissa",
+      "Before": "Nightingale Orchard Shop",
+      "After": "Ridgeside Village"
+    },
+    {
+      "Name": "Olga",
+      "Before": "Liden Residence 2F",
+      "After": "Ridgeside Village"
+    },
+    {
+      "Name": "Eloise",
+      "Before": "Vet House",
+      "After": "East Scarp"
+    },
+    {
+      "Name": "ImanSBV",
+      "Before": "Iman's House",
+      "After": "Sunberry Village"
+    },
+    {
+      "Name": "AsterPellegrinVMV",
+      "Before": "Aster and Maddy House",
+      "After": "Mount Vapius - Glimsap Hamlet"
+    }
+  ],
+  "Unresolved": [
+    {
+      "Name": "HarvestGoddess",
+      "HomeMap": "Rexstrife20.MineralTownCP_MTNPCHiddenRoom"
+    },
+    {
+      "Name": "Kappa",
+      "HomeMap": "Rexstrife20.MineralTownCP_MTNPCHiddenRoom"
+    }
+  ],
+  "LookupAnythingParity": {
+    "Compared": true,
+    "Matches": true,
+    "Mismatches": []
+  },
+  "CoreAssertionsPassed": 131,
+  "TranslationKeys": 35,
+  "PackageSHA256": "efee3a667e1ba7f353ad798172f7366e9cf4ae59ca491823742d3f771c05c3cb"
+}

@@ -5,6 +5,23 @@ Lookup Anything 1.55.0, and the installed mod pack on macOS. The isolated sessio
 loaded 96 code mods and 150 content packs, including the planner and test driver.
 Save Backup and Daily Screenshot were excluded from the copied test pack.
 
+## Home-area correction in 1.0.1
+
+- Clean release build and all 131 core assertions pass. English/Polish have 35 matching keys.
+- Runtime diagnostics check all 176 characters; 174 resolve to outdoor home maps.
+- Examples: Abigail → Pelican Town; Alissa and Olga (a second-floor home) → Ridgeside
+  Village; Eloise → East Scarp; Iman → Sunberry Village; Aster → Mount Vapius - Glimsap
+  Hamlet; Sebastian (a nested room) → Mountains.
+- Harvest Goddess and Kappa use Mineral Town’s hidden NPC room with no outdoor exit;
+  these show Unknown area rather than an invented town or private room name.
+- Visual inspection confirms the new Home area label and translated map names fit
+  the popup. Owned-item totals still match Lookup Anything.
+- Release ZIP integrity and DLL equality with the running tested version are verified.
+
+See [home-areas-1.0.1.json](home-areas-1.0.1.json) for the comparison evidence.
+
+The following checks describe the original 1.0.0 release.
+
 ## Build and automated checks
 
 - Release build: zero warnings and zero errors against installed game assemblies.

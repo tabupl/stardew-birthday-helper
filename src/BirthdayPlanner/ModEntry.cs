@@ -132,7 +132,7 @@ public sealed class ModEntry : Mod
             RefreshData();
             var birthdays = Enumerable.Range(0, 112).Select(i => new CalendarDate(i / 28, i % 28 + 1))
                 .SelectMany(date => service.GetCards(date).Select(card => new {
-                    date.Season, date.Day, Name = card.Npc.Name, DisplayName = card.Npc.displayName, card.Home,
+                    date.Season, date.Day, Name = card.Npc.Name, DisplayName = card.Npc.displayName, card.Home, HomeMap = card.Npc.DefaultMap,
                     Preference = card.Selection.Preference.ToString(), Gifts = card.Selection.Gifts.Select(gift => new {
                         Id = gift.Item.QualifiedItemId, gift.Name, gift.Quality, gift.Count, gift.InventoryCount, gift.Sources })
                 })).ToArray();

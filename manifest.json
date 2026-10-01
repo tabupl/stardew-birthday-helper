@@ -1,7 +1,7 @@
 {
   "Name": "Birthday Planner",
   "Author": "Adam",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "Description": "Browse vanilla and modded birthdays and find the best gifts you already own.",
   "UniqueID": "Adam.BirthdayPlanner",
   "EntryDll": "BirthdayPlanner.dll",
