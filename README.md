@@ -4,6 +4,9 @@ A SMAPI popup for managing birthday gifts across vanilla and modded Stardew Vall
 characters. It reads active character data and evaluates concrete owned items using
 the game's gift-taste function, including modded items, category tastes, and exceptions.
 
+[Download the latest mod ZIP](https://github.com/tabupl/stardew-birthday-helper/releases/latest/download/BirthdayPlanner-1.0.1.zip)
+· [Releases](https://github.com/tabupl/stardew-birthday-helper/releases)
+
 Press **Left Control + B** to open it. Browse individual dates with arrows or click
 the date to choose a season and day. **Today** returns to the game date. The selected
 date persists per farm and player in the mod's `data` directory.
@@ -22,10 +25,24 @@ and date-persistence options. English and Polish UI text is included.
 
 ## Install
 
-Extract `dist/BirthdayPlanner-1.0.1.zip` and copy `BirthdayPlanner` to your game’s
-`Mods` directory. See [INSTALL.txt](INSTALL.txt). The same package is intended for
-Mac, Windows, and Linux; it contains platform-independent .NET 6 assemblies.
-It adds no NPCs, objects, locations, or serialized save types.
+Requires **Stardew Valley 1.6.15+** and **SMAPI 4.3.1+**.
+
+1. Close Stardew Valley.
+2. Download `BirthdayPlanner-1.0.1.zip` from [GitHub Releases](https://github.com/tabupl/stardew-birthday-helper/releases/latest).
+   Use the mod ZIP asset; the automatically generated source-code archives are for developers.
+3. Extract the ZIP and copy its `BirthdayPlanner` folder into your game's `Mods` folder.
+   The resulting path should be `Mods/BirthdayPlanner/manifest.json`.
+4. Start Stardew Valley through SMAPI, load your farm, and press **Left Control + B**.
+
+On Windows, Steam → Stardew Valley → Manage → Browse local files opens the game folder.
+Copy the extracted folder into `Mods` there. The same ZIP is intended for Mac, Windows,
+and Linux; it contains platform-independent .NET 6 assemblies. See [INSTALL.txt](INSTALL.txt)
+for controls and optional integrations. This mod adds no NPCs, objects, locations,
+or serialized save types.
+
+For an update, replace the mod's DLLs, manifest, translations, and documentation with
+the new package. Keep `config.json` and `data/` if you want to retain settings and the
+last selected date. Install it on each computer whose player wants the popup.
 
 ## Storage and multiplayer
 
