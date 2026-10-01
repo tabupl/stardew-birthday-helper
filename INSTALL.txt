@@ -1,0 +1,30 @@
+Birthday Planner 1.0.0 — Mac / Windows / Linux
+
+Requires Stardew Valley 1.6.15 or later and SMAPI 4.3.1 or later.
+
+1. Exit Stardew Valley.
+2. Extract BirthdayPlanner-1.0.0.zip.
+3. Copy its BirthdayPlanner folder into your game's Mods folder.
+   The path should be Mods/BirthdayPlanner/manifest.json, not Mods/Mods/...
+4. Start Stardew through SMAPI and load your farm.
+5. Press Left Control + B to open the planner. Press again or Escape to close.
+
+Use the day arrows, or click the date for a season/day picker.
+Today returns to the current date; Refresh reads your items again.
+The last selected date is remembered for each farm and player.
+Up/Down, mouse wheel, or the bottom buttons browse characters on the same day.
+Hover a portrait or item and press F1 to use Lookup Anything, if installed.
+On Mac, F1 may require Fn+F1 depending on keyboard settings.
+
+Each player sees their own inventory plus locally visible storage.
+Other players' inventories are excluded. Each person who wants the popup
+installs the mod; the host need not install it just for a guest to use it.
+Recommendations for future birthdays use items owned now.
+
+Loved gifts are preferred; liked gifts appear only when no owned loved gift
+exists. Up to five suggestions are shown, sorted by iridium, gold, silver,
+normal quality. Hover an item to see its quantity and storage locations.
+
+Lookup Anything and Generic Mod Config Menu are optional integrations.
+Change the shortcut and options in GMCM or the mod's generated config.json.
+Removing the mod does not remove game content or alter your farm save.

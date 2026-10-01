@@ -1,0 +1,61 @@
+{
+  "Timestamp": "2026-10-01T10:23:47.883536+00:00",
+  "Game": "1.6.15",
+  "Smapi": "4.5.2",
+  "IsMainPlayer": true,
+  "IsMultiplayer": false,
+  "OwnedGiftStacks": 86,
+  "OtherPlayersInventoriesIncluded": false,
+  "LookupAnythingParity": {
+    "Compared": true,
+    "Matches": true,
+    "Mismatches": []
+  },
+  "OpenMenu": {
+    "Date": {
+      "SeasonIndex": 0,
+      "Day": 14,
+      "Season": "spring"
+    },
+    "CharacterCount": 4,
+    "PageCount": 2
+  },
+  "BirthdayCharacters": 176,
+  "DatesEnumerated": 112,
+  "LikedFallbackCharacters": 7,
+  "AllRecommendationsAtMostFive": true,
+  "AllRecommendationsQualityDescending": true,
+  "CoreAssertionsPassed": 131,
+  "IntegrationAssertions": [
+    "Gift fixture created in isolated memory only",
+    "Date arrow changes exactly one day",
+    "Date arrow round trip",
+    "Close/reopen remembers selected date",
+    "F1 integration resolves lookup-npc",
+    "Escape processed",
+    "F1 integration resolves lookup-item",
+    "Gift tile stays within content bounds on page 1",
+    "Gift tile stays within content bounds on page 1",
+    "Gift tile stays within content bounds on page 1",
+    "Gift tile stays within content bounds on page 2",
+    "Gift tile stays within content bounds on page 2",
+    "Gift tile stays within content bounds on page 2",
+    "Gift tile stays within content bounds on page 2",
+    "Gift tile stays within content bounds on page 2",
+    "Gift tile stays within content bounds on page 2",
+    "Date arrow changes exactly one day",
+    "Date arrow round trip",
+    "Close/reopen remembers selected date",
+    "Date picker opens",
+    "Picker season selection",
+    "Picker day selection closes picker",
+    "Today button",
+    "F1 integration resolves lookup-npc",
+    "Escape processed"
+  ],
+  "DatePickerSummer21Confirmed": true,
+  "TodaySpring2Confirmed": true,
+  "LookupCloseRestoresPlannerConfirmed": true,
+  "DateRestoredAfterProcessRestart": true,
+  "PackageSHA256": "e01bdc8c3832006b35823091f65fcb6cb7087e2b889b15f9f1d30b27c8c32011"
+}

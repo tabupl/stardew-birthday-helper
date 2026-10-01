@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+.cache/
+dist/
+test-session/
+verification/runtime/
+*.user
+.DS_Store
+config.json
+data/
+GamePath.props

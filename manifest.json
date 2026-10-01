@@ -1,0 +1,15 @@
+{
+  "Name": "Birthday Planner",
+  "Author": "Adam",
+  "Version": "1.0.0",
+  "Description": "Browse vanilla and modded birthdays and find the best gifts you already own.",
+  "UniqueID": "Adam.BirthdayPlanner",
+  "EntryDll": "BirthdayPlanner.dll",
+  "MinimumApiVersion": "4.3.1",
+  "MinimumGameVersion": "1.6.15",
+  "UpdateKeys": [],
+  "Dependencies": [
+    { "UniqueID": "Pathoschild.LookupAnything", "IsRequired": false },
+    { "UniqueID": "spacechase0.GenericModConfigMenu", "IsRequired": false }
+  ]
+}
