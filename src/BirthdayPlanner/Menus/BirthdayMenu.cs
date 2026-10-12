@@ -53,6 +53,8 @@ internal sealed class BirthdayMenu : IClickableMenu
     private int U(int value) => (int)Math.Round(value * scale);
     private string T(string key, object? tokens = null) => text.Get(key, tokens).ToString();
     private string DateLabel(CalendarDate date) => $"{Utility.getSeasonNameFromNumber(date.SeasonIndex)} {date.Day}";
+    private string FriendshipLabel(BirthdayCard card) => T(card.AtMaxHearts ? "character.max-hearts" : "character.hearts",
+        new { hearts = Math.Clamp(card.Hearts, 0, card.MaxHearts), max = card.MaxHearts });
 
     private void Layout()
     {
@@ -228,6 +230,7 @@ internal sealed class BirthdayMenu : IClickableMenu
             if (!hit.Bounds.Contains(x, y)) continue;
             HoveredNpc = hit.Card.Npc;
             tooltip = hit.Card.Npc.displayName + "\n" + T("character.home", new { home = hit.Card.Home })
+                + "\n" + FriendshipLabel(hit.Card)
                 + (lookupInstalled ? "\n" + T("lookup.npc") : "");
             return;
         }
@@ -278,7 +281,13 @@ internal sealed class BirthdayMenu : IClickableMenu
         Rectangle portrait = new(bounds.X + U(14), y + U(12), U(64), U(64));
         try { b.Draw(card.Npc.Portrait, portrait, new Rectangle(0, 0, 64, 64), Color.White); }
         catch { Label(b, "?", portrait.X + U(20), portrait.Y + U(16)); }
-        Label(b, Fit(card.Npc.displayName, bounds.Width - U(110), 1f), bounds.X + U(92), y + U(16));
+        string friendship = FriendshipLabel(card);
+        int badgeWidth = (int)Math.Ceiling(Game1.smallFont.MeasureString(friendship).X * .65f * scale) + U(16);
+        Rectangle badge = new(bounds.Right - U(14) - badgeWidth, y + U(14), badgeWidth, U(31));
+        b.Draw(Game1.staminaRect, badge, card.AtMaxHearts ? new Color(207, 229, 171) : new Color(252, 234, 196));
+        Label(b, friendship, badge.X + U(8), badge.Y + U(7), .65f,
+            card.AtMaxHearts ? new Color(51, 91, 42) : new Color(111, 84, 63));
+        Label(b, Fit(card.Npc.displayName, badge.X - bounds.X - U(104), 1f), bounds.X + U(92), y + U(16));
         Label(b, Fit(T("character.home", new { home = card.Home }), bounds.Width - U(110), .7f), bounds.X + U(92), y + U(48), .7f);
         string category = card.Selection.Preference switch { GiftPreference.Love => T("gift.loved"), GiftPreference.Like => T("gift.liked"), _ => T("gift.none") };
         if (selected == BirthdayService.Today() && card.GiftedToday) category += "  /  " + T("gift.already-given");

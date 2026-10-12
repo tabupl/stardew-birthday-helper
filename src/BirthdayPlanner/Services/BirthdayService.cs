@@ -4,7 +4,10 @@ using StardewValley;
 
 namespace BirthdayPlanner.Services;
 
-internal sealed record BirthdayCard(NPC Npc, string Home, bool GiftedToday, GiftSelection<Item> Selection);
+internal sealed record BirthdayCard(NPC Npc, string Home, bool GiftedToday, int Hearts, int MaxHearts, GiftSelection<Item> Selection)
+{
+    public bool AtMaxHearts => MaxHearts > 0 && Hearts >= MaxHearts;
+}
 
 internal sealed class BirthdayService
 {
@@ -37,6 +40,7 @@ internal sealed class BirthdayService
         .Where(npc => string.Equals(npc.Birthday_Season, date.Season, StringComparison.OrdinalIgnoreCase) && npc.Birthday_Day == date.Day)
         .Select(npc => new BirthdayCard(npc, GetHome(npc),
             Game1.player.friendshipData.TryGetValue(npc.Name, out Friendship? friendship) && friendship.GiftsToday > 0,
+            Game1.player.getFriendshipHeartLevelForNPC(npc.Name), Utility.GetMaximumHeartsForCharacter(npc),
             GiftRanker.Select(Stock, item => GetTaste(npc, item)))).ToList();
 
     public static CalendarDate Today() => new(Utility.getSeasonNumber(Game1.currentSeason), Game1.dayOfMonth);

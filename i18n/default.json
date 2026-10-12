@@ -33,5 +33,7 @@
   "config.unmet-hint": "Includes active, giftable characters even before your first conversation.",
   "config.remember": "Remember selected date",
   "config.remember-hint": "Remembers the date per save and player, including after restarting the game.",
-  "character.unknown-area": "Unknown area"
+  "character.unknown-area": "Unknown area",
+  "character.hearts": "Hearts: {{hearts}}/{{max}}",
+  "character.max-hearts": "Max hearts ({{hearts}}/{{max}})"
 }

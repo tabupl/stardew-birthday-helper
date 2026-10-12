@@ -33,5 +33,7 @@
   "config.unmet-hint": "Uwzględnia aktywne postacie przyjmujące prezenty, nawet przed pierwszą rozmową.",
   "config.remember": "Zapamiętuj wybraną datę",
   "config.remember-hint": "Zapamiętuje datę dla danego zapisu i gracza, także po ponownym uruchomieniu gry.",
-  "character.unknown-area": "Nieznany obszar"
+  "character.unknown-area": "Nieznany obszar",
+  "character.hearts": "Serca: {{hearts}}/{{max}}",
+  "character.max-hearts": "Maks. serca ({{hearts}}/{{max}})"
 }

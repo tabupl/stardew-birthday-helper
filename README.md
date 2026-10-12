@@ -4,7 +4,7 @@ A SMAPI popup for managing birthday gifts across vanilla and modded Stardew Vall
 characters. It reads active character data and evaluates concrete owned items using
 the game's gift-taste function, including modded items, category tastes, and exceptions.
 
-[Download the latest mod ZIP](https://github.com/tabupl/stardew-birthday-helper/releases/latest/download/BirthdayPlanner-1.0.1.zip)
+[Download the latest mod ZIP](https://github.com/tabupl/stardew-birthday-helper/releases/latest/download/BirthdayPlanner-1.0.2.zip)
 · [Releases](https://github.com/tabupl/stardew-birthday-helper/releases)
 
 Press **Left Control + B** to open it. Browse individual dates with arrows or click
@@ -12,6 +12,10 @@ the date to choose a season and day. **Today** returns to the game date. The sel
 date persists per farm and player in the mod's `data` directory.
 
 Each character has a portrait, home area, and up to five owned gift suggestions.
+Each header shows your current hearts and the game’s current limit, with a green
+**Max hearts** badge when reached: normally 8 for undated romanceable NPCs, 10 for
+other friendships or dating, and 14 for spouses. This uses the game’s own limit
+function and your local player’s friendship; gifts remain available at the cap.
 Loved gifts take priority; liked gifts appear only if no loved gift is available.
 Iridium, gold, silver, and normal variants remain distinct and sort in that order.
 Matching stacks are combined. Hover a gift for quantities and storage locations,
@@ -28,7 +32,7 @@ and date-persistence options. English and Polish UI text is included.
 Requires **Stardew Valley 1.6.15+** and **SMAPI 4.3.1+**.
 
 1. Close Stardew Valley.
-2. Download `BirthdayPlanner-1.0.1.zip` from [GitHub Releases](https://github.com/tabupl/stardew-birthday-helper/releases/latest).
+2. Download `BirthdayPlanner-1.0.2.zip` from [GitHub Releases](https://github.com/tabupl/stardew-birthday-helper/releases/latest).
    Use the mod ZIP asset; the automatically generated source-code archives are for developers.
 3. Extract the ZIP and copy its `BirthdayPlanner` folder into your game's `Mods` folder.
    The resulting path should be `Mods/BirthdayPlanner/manifest.json`.
@@ -65,7 +69,7 @@ save, or intentionally unable to receive gifts, are excluded. Home areas follow 
 warps from the character's default home to the nearest outdoor
 map (including multi-floor homes and farm buildings), using the game's translated map
 name. A home with no resolvable outdoor exit shows Unknown area. Future-date browsing
-evaluates currently loaded tastes
+evaluates current friendship, currently loaded tastes,
 and current stock, not predicted future stock or future conditional preferences.
 
 ## Build

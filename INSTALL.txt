@@ -1,9 +1,9 @@
-Birthday Planner 1.0.1 — Mac / Windows / Linux
+Birthday Planner 1.0.2 — Mac / Windows / Linux
 
 Requires Stardew Valley 1.6.15 or later and SMAPI 4.3.1 or later.
 
 1. Exit Stardew Valley.
-2. Extract BirthdayPlanner-1.0.1.zip.
+2. Extract BirthdayPlanner-1.0.2.zip.
 3. Copy its BirthdayPlanner folder into your game's Mods folder.
    The path should be Mods/BirthdayPlanner/manifest.json, not Mods/Mods/...
 4. Start Stardew through SMAPI and load your farm.
@@ -28,3 +28,6 @@ normal quality. Hover an item to see its quantity and storage locations.
 Lookup Anything and Generic Mod Config Menu are optional integrations.
 Change the shortcut and options in GMCM or the mod's generated config.json.
 Removing the mod does not remove game content or alter your farm save.
+
+Character headers show your hearts/current limit. A green Max hearts badge means
+you reached that character’s current cap (including dating and marriage status).

@@ -5,6 +5,27 @@ Lookup Anything 1.55.0, and the installed mod pack on macOS. The isolated sessio
 loaded 96 code mods and 150 content packs, including the planner and test driver.
 Save Backup and Daily Screenshot were excluded from the copied test pack.
 
+## Max-heart indicator in 1.0.2
+
+Checked on 12 October 2026 with the same isolated mod pack and copied local test save.
+
+- Release and test driver compile without warnings/errors; 131 core assertions pass.
+- 26 friendship checks pass in the running game: Abigail at/below 8, dating and
+  engagement at/below 10, marriage at/below 14, Pierre at/below 10, and modded
+  Alissa at/below 8. One point below each cap remains unmarked. Starting dating at
+  8 hearts raises the cap to 10 and clears the max badge. An unmet NPC shows zero.
+- Caps come from `Utility.GetMaximumHeartsForCharacter`, hearts from the local
+  player's `getFriendshipHeartLevelForNPC`; no character-specific cap table is used.
+- All 176 birthday entries include the heart state. Owned-stock parity still matches
+  Lookup Anything. Navigation/reopen, gift bounds, and F1 portrait/item paths pass.
+- English and Polish have 37 matching translation keys; ZIP contents/integrity and
+  equality with the running test DLLs are verified.
+- The user's separate live game was left running. Test friendship records were
+  restored after threshold checks, and only the isolated process was exited.
+  Installation into the live Mods folder is deferred while the user is playing.
+
+See [hearts-1.0.2.json](hearts-1.0.2.json) for recorded checks and the package hash.
+
 ## Home-area correction in 1.0.1
 
 - Clean release build and all 131 core assertions pass. English/Polish have 35 matching keys.

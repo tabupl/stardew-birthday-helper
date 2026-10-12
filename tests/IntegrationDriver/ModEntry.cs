@@ -22,6 +22,7 @@ public sealed class ModEntry : Mod
         }
         helper.ConsoleCommands.Add("bp_test_load", "Load only the copied test save.", (_, _) => { SaveGame.Load("kjnkjn_449866233"); Game1.exitActiveMenu(); });
         helper.ConsoleCommands.Add("bp_test_fixture", "Add gift fixtures only in the copied test world; never saves.", Fixture);
+        helper.ConsoleCommands.Add("bp_test_friendship", "Check friendship caps and thresholds in the isolated world; restores all original friendship records.", TestFriendship);
         helper.ConsoleCommands.Add("bp_test_action", "Run a planner integration action: right, left, today, picker, day N, season N, escape, lookup-npc, lookup-item, verify-ui.", Act);
         helper.ConsoleCommands.Add("bp_test_quit", "Exit the test process without saving.", (_, _) => Game1.game1.Exit());
     }
@@ -50,9 +51,62 @@ public sealed class ModEntry : Mod
         nested.Items.Add(ItemRegistry.Create("(O)72", 4, 4));
         chest.Items.Add(nested);
         Game1.getFarm().objects[new Vector2(16, 16)] = chest;
+        foreach (var (name, hearts) in new[] { ("Abigail", 8), ("Pierre", 10), ("Alissa", 8) })
+            Game1.player.friendshipData[name] = new Friendship(hearts * NPC.friendshipPointsPerHeartLevel);
         Check(true, "Gift fixture created in isolated memory only");
     }
     private void Click(IClickableMenu menu, Rectangle bounds) => menu.receiveLeftClick(bounds.Center.X, bounds.Center.Y);
+    private void TestFriendship(string command, string[] args)
+    {
+        if (!Context.IsWorldReady) return;
+        object planner = GetMod("Adam.BirthdayPlanner");
+        Helper.Reflection.GetMethod(planner, "RefreshData").Invoke();
+        object service = Helper.Reflection.GetField<object>(planner, "service").GetValue();
+        var originals = new Dictionary<string, Friendship?>();
+        try
+        {
+            foreach (var example in new (string Name, FriendshipStatus Status, int Points, int Hearts, int Cap, bool Maxed)[] {
+                ("Abigail", FriendshipStatus.Friendly, 1999, 7, 8, false),
+                ("Abigail", FriendshipStatus.Friendly, 2000, 8, 8, true),
+                ("Abigail", FriendshipStatus.Dating, 2000, 8, 10, false),
+                ("Abigail", FriendshipStatus.Dating, 2499, 9, 10, false),
+                ("Abigail", FriendshipStatus.Dating, 2500, 10, 10, true),
+                ("Abigail", FriendshipStatus.Engaged, 2500, 10, 10, true),
+                ("Abigail", FriendshipStatus.Married, 3499, 13, 14, false),
+                ("Abigail", FriendshipStatus.Married, 3500, 14, 14, true),
+                ("Pierre", FriendshipStatus.Friendly, 2499, 9, 10, false),
+                ("Pierre", FriendshipStatus.Friendly, 2500, 10, 10, true),
+                ("Alissa", FriendshipStatus.Friendly, 1999, 7, 8, false),
+                ("Alissa", FriendshipStatus.Friendly, 2000, 8, 8, true) })
+            {
+                if (!originals.ContainsKey(example.Name))
+                    originals[example.Name] = Game1.player.friendshipData.TryGetValue(example.Name, out Friendship? original) ? original : null;
+                Game1.player.friendshipData[example.Name] = new Friendship(example.Points) { Status = example.Status };
+                NPC npc = Game1.getCharacterFromName(example.Name);
+                var date = new CalendarDate(Utility.getSeasonNumber(npc.Birthday_Season), npc.Birthday_Day);
+                var cards = Helper.Reflection.GetMethod(service, "GetCards").Invoke<System.Collections.IEnumerable>(date).Cast<object>();
+                object card = cards.Single(p => Helper.Reflection.GetProperty<NPC>(p, "Npc").GetValue().Name == example.Name);
+                Check(Helper.Reflection.GetProperty<int>(card, "Hearts").GetValue() == example.Hearts,
+                    $"{example.Name} {example.Status} at {example.Points} points: {example.Hearts} hearts");
+                Check(Helper.Reflection.GetProperty<int>(card, "MaxHearts").GetValue() == example.Cap &&
+                    Helper.Reflection.GetProperty<bool>(card, "AtMaxHearts").GetValue() == example.Maxed,
+                    $"{example.Name} {example.Status}: cap {example.Cap}, max badge {example.Maxed}");
+            }
+            Game1.player.friendshipData.Remove("Abigail");
+            var unmetDate = new CalendarDate(2, 13);
+            object unmet = Helper.Reflection.GetMethod(service, "GetCards").Invoke<System.Collections.IEnumerable>(unmetDate).Cast<object>()
+                .Single(p => Helper.Reflection.GetProperty<NPC>(p, "Npc").GetValue().Name == "Abigail");
+            Check(Helper.Reflection.GetProperty<int>(unmet, "Hearts").GetValue() == 0 && !Helper.Reflection.GetProperty<bool>(unmet, "AtMaxHearts").GetValue(),
+                "Unmet character shows zero hearts without a max badge");
+        }
+        catch (Exception ex) { Monitor.Log("FAIL: " + ex, LogLevel.Error); }
+        finally
+        {
+            foreach (var (name, original) in originals)
+                if (original == null) Game1.player.friendshipData.Remove(name); else Game1.player.friendshipData[name] = original;
+            Check(true, "Original friendship records restored; no save writes");
+        }
+    }
     private void Act(string cmd, string[] args)
     {
         try

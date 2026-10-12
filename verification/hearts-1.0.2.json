@@ -1,0 +1,74 @@
+{
+  "Version": "1.0.2",
+  "Timestamp": "2026-10-12T14:54:04.656356+00:00",
+  "Game": "1.6.15",
+  "Smapi": "4.5.2",
+  "BirthdayCharacters": 176,
+  "CoreAssertionsPassed": 131,
+  "FriendshipChecksPassed": 26,
+  "IntegrationAssertions": [
+    "Abigail Friendly at 1999 points: 7 hearts",
+    "Abigail Friendly: cap 8, max badge False",
+    "Abigail Friendly at 2000 points: 8 hearts",
+    "Abigail Friendly: cap 8, max badge True",
+    "Abigail Dating at 2000 points: 8 hearts",
+    "Abigail Dating: cap 10, max badge False",
+    "Abigail Dating at 2499 points: 9 hearts",
+    "Abigail Dating: cap 10, max badge False",
+    "Abigail Dating at 2500 points: 10 hearts",
+    "Abigail Dating: cap 10, max badge True",
+    "Abigail Engaged at 2500 points: 10 hearts",
+    "Abigail Engaged: cap 10, max badge True",
+    "Abigail Married at 3499 points: 13 hearts",
+    "Abigail Married: cap 14, max badge False",
+    "Abigail Married at 3500 points: 14 hearts",
+    "Abigail Married: cap 14, max badge True",
+    "Pierre Friendly at 2499 points: 9 hearts",
+    "Pierre Friendly: cap 10, max badge False",
+    "Pierre Friendly at 2500 points: 10 hearts",
+    "Pierre Friendly: cap 10, max badge True",
+    "Alissa Friendly at 1999 points: 7 hearts",
+    "Alissa Friendly: cap 8, max badge False",
+    "Alissa Friendly at 2000 points: 8 hearts",
+    "Alissa Friendly: cap 8, max badge True",
+    "Unmet character shows zero hearts without a max badge",
+    "Original friendship records restored; no save writes",
+    "Gift fixture created in isolated memory only",
+    "Gift tile stays within content bounds on page 1",
+    "Gift tile stays within content bounds on page 1",
+    "Date arrow changes exactly one day",
+    "Date arrow round trip",
+    "Close/reopen remembers selected date",
+    "F1 integration resolves lookup-npc",
+    "Escape processed",
+    "F1 integration resolves lookup-item"
+  ],
+  "LookupAnythingParity": {
+    "Compared": true,
+    "Matches": true,
+    "Mismatches": []
+  },
+  "MaxBadgeExamples": [
+    {
+      "Name": "Alissa",
+      "Hearts": 8,
+      "MaxHearts": 8,
+      "AtMaxHearts": true
+    },
+    {
+      "Name": "Pierre",
+      "Hearts": 10,
+      "MaxHearts": 10,
+      "AtMaxHearts": true
+    },
+    {
+      "Name": "Abigail",
+      "Hearts": 8,
+      "MaxHearts": 8,
+      "AtMaxHearts": true
+    }
+  ],
+  "PackageSHA256": "22c9df999ff17db88084ae8d0100330ad2931daa7d2c17492cb47079d5099662",
+  "LiveGameRestarted": false,
+  "ProductionInstallPending": true
+}

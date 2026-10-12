@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>BirthdayPlanner</AssemblyName>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <!-- Game references are x64; the mod itself is portable IL, like SMAPI's standard build config. -->
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
